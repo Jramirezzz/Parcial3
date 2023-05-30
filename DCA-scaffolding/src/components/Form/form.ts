@@ -1,3 +1,4 @@
+import { getinfo } from "../../utils/firebase";
 
 export class Form extends HTMLElement{
 
@@ -43,10 +44,14 @@ export class Form extends HTMLElement{
         const btn = this.ownerDocument.createElement('button');
         btn.textContent = "Save"
         const Lbtn = this.ownerDocument.createElement('label');
-        btn.addEventListener("click", (u:any) => {
-        
+        btn.addEventListener("click",  (u:any) => {
+            u.btn.action
 
         });
+
+        function getinfo(){
+        
+        };
         
         this.shadowRoot?.appendChild(Namer);
         this.shadowRoot?.appendChild(Lnamer);

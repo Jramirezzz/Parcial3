@@ -1,28 +1,16 @@
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "../firebaseConfig"
-import { getStorage } from "firebase/storage";
-import { getFirestore } from "firebase/firestore";
-
-
-
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 
 const app = initializeApp(firebaseConfig);
-const storage = getStorage(app);
 const db = getFirestore(app);
 
 
-import { collection, addDoc } from "firebase/firestore";
+export async function getinfo (db:any) {
+    const Recetas = collection(db, 'recetas');
+    const recetasSnapshot = await getDocs(Recetas);
+    const RecetasList = recetasSnapshot.docs.map(doc => doc.data());
+    return RecetasList;
+  }
 
-// const AddInfo: any () => {
-//     try {
-//          await addDoc(collection(db, "users"), {
-//           first: "Ada",
-//           last: "Lovelace",
-//           born: 1815
-//         });
-//       } catch (e) {
-//         console.error("Error adding document: ", e);
-//       }
-      
-// }
-
+  

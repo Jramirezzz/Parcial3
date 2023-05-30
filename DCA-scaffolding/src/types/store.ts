@@ -5,11 +5,11 @@ export type AppState = {
 };
 
 export enum Savereceta {
-  "X" = "X",
+  "SAVE_RECETA" = "SAVE_RECETA",
 }
 
 export interface XAction {
-  action: Savereceta.X;
+  action: Savereceta.SAVE_RECETA;
   payload: Pick<AppState, "something">;
 }
 
